@@ -1,6 +1,6 @@
-# logstash-commons
+# logstash_commons
 
-Provides a common repository of logstash recipes for various technologies that produce logs. All of the recipes here call `logstash_config` from the upstream lusis/chef-logstash and use that to configure the logs to be sent to logstash for that particular technology. The hope is that you would eventually be able to simply include logstash, apache2, and logstash-commons::apache, and have a fully working apache2 and logstash server that can parse Apache logs.
+Provides a common repository of logstash recipes for various technologies that produce logs. All of the recipes here call `logstash_config` from the upstream lusis/chef-logstash and use that to configure the logs to be sent to logstash for that particular technology. The hope is that you would eventually be able to simply include logstash, apache2, and logstash_commons::apache, and have a fully working apache2 and logstash server that can parse Apache logs.
 
 ## [Changelog](CHANGELOG.md)
 
@@ -26,19 +26,19 @@ Please describe any attributes exposed by this stack, and what the default value
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['logstash-commons']['instance_name']</tt></td>
+    <td><tt>['logstash_commons']['instance_name']</tt></td>
     <td>String</td>
     <td>name of logstash_instance</td>
     <td><tt>'default''</tt></td>
   </tr>
   <tr>
-    <td><tt>['logstash-commons']['service_name']</tt></td>
+    <td><tt>['logstash_commons']['service_name']</tt></td>
     <td>Boolean</td>
     <td>name of logstash_service</td>
     <td><tt>'default'</tt></td>
   </tr>
   <tr>
-    <td><tt>['logstash-commons']['restart_service']</tt></td>
+    <td><tt>['logstash_commons']['restart_service']</tt></td>
     <td>Boolean</td>
     <td>whether to restart logstash when templates are acted upon</td>
     <td><tt>true</tt></td>
@@ -47,17 +47,17 @@ Please describe any attributes exposed by this stack, and what the default value
 
 ## Usage
 
-### logstash-commons::default
+### logstash_commons::default
 
 Does nothing.
 
-### logstash-commons::*
+### logstash_commons::*
 
-Each recipe configures a logstash_config for the default logging location and default log patterns for an upstream cookbook or service of that name. For example, logstash-commons::apache uses the upstream apache2 cookbook attributes to configure logstash to watch and parse any logs.
+Each recipe configures a logstash_config for the default logging location and default log patterns for an upstream cookbook or service of that name. For example, logstash_commons::apache uses the upstream apache2 cookbook attributes to configure logstash to watch and parse any logs.
 
 ## Contributing
 
-See [CONTRIBUTING](https://github.com/AutomationSupport/logstash-commons/blob/master/CONTRIBUTING.md).
+See [CONTRIBUTING](https://github.com/AutomationSupport/logstash_commons/blob/master/CONTRIBUTING.md).
 
 ## Authors
 

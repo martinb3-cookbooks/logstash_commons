@@ -1,11 +1,11 @@
 # Encoding: utf-8
 #
-# Cookbook Name:: logstash-commons
+# Cookbook Name:: logstash_commons
 #
 # Copyright 2014, Rackspace Hosting
 #
 
-include_recipe 'logstash-commons::default'
+include_recipe 'logstash_commons::default'
 
 logstash_commons_config 'input_memcached' do
   variables(path: '/var/log/*memcache*log')

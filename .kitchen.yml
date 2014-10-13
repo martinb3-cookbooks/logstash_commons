@@ -53,6 +53,6 @@ platforms:
 
 suites:
   - name: default
-    run_list: recipe[logstash-commons]
+    run_list: recipe[logstash_commons]
     attributes:
       foo: 'bar'

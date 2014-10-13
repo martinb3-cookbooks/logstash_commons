@@ -2,9 +2,9 @@
 
 require_relative 'spec_helper'
 
-# this will pass on logstash-commons, fail elsewhere, forcing you to
+# this will pass on logstash_commons, fail elsewhere, forcing you to
 # write those chefspec tests you always were avoiding
-describe 'logstash-commons::default' do
+describe 'logstash_commons::default' do
   before { stub_resources }
   supported_platforms.each do |platform, versions|
     versions.each do |version|
