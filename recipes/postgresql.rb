@@ -6,7 +6,8 @@
 #
 
 include_recipe 'logstash_commons::default'
+include_recipe 'chef-sugar'
 
 logstash_commons_config 'input_postgresql' do
-  variables(path: "#{node['postgresql']['config']['log_directory']}/**log")
+  variables(path: "#{node.deep_fetch('postgresql', 'config', 'log_directory')}/**log")
 end

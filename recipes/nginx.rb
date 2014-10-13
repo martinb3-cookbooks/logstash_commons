@@ -6,7 +6,8 @@
 #
 
 include_recipe 'logstash_commons::default'
+include_recipe 'chef-sugar'
 
 logstash_commons_config 'input_nginx' do
-  variables(path: "#{node['nginx']['log_dir']}/**log")
+  variables(path: "#{node.deep_fetch('nginx', 'log_dir')}/**log")
 end
