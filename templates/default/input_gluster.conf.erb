@@ -1,11 +1,8 @@
 input {
   file {
     path => "/var/log/glusterfs/*.log"
-    type => "gluster"
+    type => "glusterfs"
   }
-}
-
-input {
   file {
     path => "/var/log/gluster*log"
     type => "gluster"

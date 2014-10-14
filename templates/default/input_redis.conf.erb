@@ -3,9 +3,7 @@ input {
     path => "/var/log/redis/*log"
     type => "redis"
   }
-}
-
-input {
+  
   file {
     path => "/var/log/redis*log"
     type => "redis"
