@@ -12,8 +12,15 @@ define :logstash_commons_config, variables: {}, instance_name: nil, template_nam
     templates_cookbook params[:template_source_cookbook]
     templates(params[:template_name] => params[:template_source_file])
     variables params[:variables]
-    if node['logstash_commons']['restart_service']
-      notifies :restart, "logstash_service[#{node['logstash_commons']['service_name']}]", :delayed
+    # this is a trick to ensure the notification doesn't hurt us, if the logstash
+    # cookbook is not currently available/included on this node
+    begin
+      resources("logstash_service[#{node['logstash_commons']['service_name']}]");
+      if node['logstash_commons']['restart_service']
+        notifies :restart, "logstash_service[#{node['logstash_commons']['service_name']}]", :delayed
+      end
+    rescue Chef::Exceptions::ResourceNotFound
+      Chef::Log.warn("Could not find logstash_service[#{node['logstash_commons']['service_name']}], will not notify it to restart")
     end
     action params[:action]
   end
